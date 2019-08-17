@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Calculadora de Cubagem</string>
+    <string name="largura">Largura:</string>
+    <string name="comprimento">Comprimento:</string>
+    <string name="altura">Altura:</string>
+    <string name="dimensoes_cm">Dimensões (cm)</string>
 </resources>

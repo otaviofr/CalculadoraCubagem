@@ -10,22 +10,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dimensões (cm)"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
+        android:text="@string/dimensoes_cm"
+        android:textColor="@color/black"
         android:textSize="26dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_View_Altura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:padding="10dp"
-        android:text="Altura (cm):"
+        android:text="@string/altura"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_calcular"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.10"
+        app:layout_constraintVertical_bias="0.15"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -33,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="150dp"
         android:layout_marginBottom="8dp"
         android:inputType="numberSigned"
         android:textSize="20sp"
@@ -41,7 +50,67 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.10" />
+        app:layout_constraintVertical_bias="0.149" />
+
+    <TextView
+        android:id="@+id/text_View_Largura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
+        android:text="@string/largura"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_calcular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.30"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="numberSigned"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <TextView
+        android:id="@+id/text_View_Comprimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
+        android:text="@string/comprimento"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_calcular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="8dp"
+        android:inputType="numberSigned"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
 
     <Button
         android:id="@+id/button_calcular"
