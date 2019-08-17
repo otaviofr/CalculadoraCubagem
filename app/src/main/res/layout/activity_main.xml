@@ -38,6 +38,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/edit_altura"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,6 +69,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/edit_largura"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -98,6 +100,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
+        android:id="@+id/edit_comprimento"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -112,9 +115,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.447" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBackground_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_View_Reultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="Resultado"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_calcular"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997" />
+
     <Button
         android:id="@+id/button_calcular"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
@@ -123,14 +149,34 @@
         android:background="@color/colorBackground_button"
         android:text="Calcular"
         android:textColor="@color/colorText"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.98" />
+
+    <Button
+        android:id="@+id/button_limpar"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorBackground_button"
+        android:text="Novo"
+        android:textColor="@color/colorText"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
