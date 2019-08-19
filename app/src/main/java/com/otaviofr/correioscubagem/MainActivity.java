@@ -35,31 +35,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         //Botão Calcular
-        if(v.getId() == R.id.button_calcular){
+        if (v.getId() == R.id.button_calcular) {
             String valorAltura = this.mViewHolder.editAltura.getText().toString();
-            if("".equals(valorAltura)){
+            if ("".equals(valorAltura)) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            } else if (v.getId() == R.id.button_calcular) {
+                String valorLargura = this.mViewHolder.editLargura.getText().toString();
+                if ("".equals(valorLargura)) {
+                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                } else if (v.getId() == R.id.button_calcular) {
+                    String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
+                    if ("".equals(valorComprimento)) {
+                        Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         }
-
-        if(v.getId() == R.id.button_calcular){
-            String valorLargura = this.mViewHolder.editLargura.getText().toString();
-            if("".equals(valorLargura)){
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+        if (v.getId() == R.id.button_calcular) {
+            String valorAltura = this.mViewHolder.editAltura.getText().toString();
+            Integer altura = Integer.valueOf(valorAltura);
+            if (altura > 105) {
+                Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+            } else if (v.getId() == R.id.button_calcular) {
+                String valorLargura = this.mViewHolder.editLargura.getText().toString();
+                Integer largura = Integer.valueOf(valorLargura);
+                if (largura > 105) {
+                    Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+                } else if (v.getId() == R.id.button_calcular) {
+                    String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
+                    Integer comprimento = Integer.valueOf(valorComprimento);
+                    if (comprimento > 105) {
+                        Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
-        }
-        if(v.getId() == R.id.button_calcular){
-            String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
-            if("".equals(valorComprimento)){
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-            }
-        }else {
-
         }
 
         //Botão Novo
         if (v.getId() == R.id.button_novo) {
-           this.mViewHolder.editAltura.setText("");
+            this.mViewHolder.editAltura.setText("");
             this.mViewHolder.editLargura.setText("");
             this.mViewHolder.editComprimento.setText("");
         }
