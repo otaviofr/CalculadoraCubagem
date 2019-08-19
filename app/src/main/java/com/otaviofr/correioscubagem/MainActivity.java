@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -44,29 +47,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
                     if ("".equals(valorComprimento)) {
                         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                    } else if (v.getId() == R.id.button_calcular) {
+                        String valorAlt = this.mViewHolder.editAltura.getText().toString();
+                        Integer altura = Integer.valueOf(valorAltura);
+                        if (altura > 105) {
+                            Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+                        } else if (v.getId() == R.id.button_calcular) {
+                            String valorLarg = this.mViewHolder.editLargura.getText().toString();
+                            Integer largura = Integer.valueOf(valorLargura);
+                            if (largura > 105) {
+                                Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+                            } else if (v.getId() == R.id.button_calcular) {
+                                String valorComp = this.mViewHolder.editComprimento.getText().toString();
+                                Integer comprimento = Integer.valueOf(valorComprimento);
+                                if (comprimento > 105) {
+                                    Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-        if (v.getId() == R.id.button_calcular) {
-            String valorAltura = this.mViewHolder.editAltura.getText().toString();
-            Integer altura = Integer.valueOf(valorAltura);
-            if (altura > 105) {
-                Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-            } else if (v.getId() == R.id.button_calcular) {
-                String valorLargura = this.mViewHolder.editLargura.getText().toString();
-                Integer largura = Integer.valueOf(valorLargura);
-                if (largura > 105) {
-                    Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-                } else if (v.getId() == R.id.button_calcular) {
-                    String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
-                    Integer comprimento = Integer.valueOf(valorComprimento);
-                    if (comprimento > 105) {
-                        Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        }
+
 
         //Botão Novo
         if (v.getId() == R.id.button_novo) {
@@ -79,6 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void LimpaValores() {
         this.mViewHolder.textResultado.setText("");
+    }
+
+    private static class ViewHolder {
+        EditText editAltura;
+        EditText editLargura;
+        EditText editComprimento;
+        Button btnCalcular;
+        Button btnNovo;
+        TextView textResultado;
     }
 
 
