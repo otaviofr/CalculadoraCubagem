@@ -2,6 +2,7 @@ package com.otaviofr.correioscubagem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,22 +12,27 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ViewHolder mViewHolder = new ViewHolder();
+    private EditText editAltura;
+    private EditText editLargura;
+    private EditText editComprimento;
+    private Button btnCalcular;
+    private Button btnNovo;
+    private TextView textResultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.mViewHolder.textResultado = findViewById(R.id.text_View_Reultado);
-        this.mViewHolder.editAltura = findViewById(R.id.edit_altura);
-        this.mViewHolder.editLargura = findViewById(R.id.edit_largura);
-        this.mViewHolder.editComprimento = findViewById(R.id.edit_comprimento);
-        this.mViewHolder.btnCalcular = findViewById(R.id.button_calcular);
-        this.mViewHolder.btnNovo = findViewById(R.id.button_novo);
+        textResultado = findViewById(R.id.text_View_Reultado);
+        editAltura = findViewById(R.id.edit_altura);
+        editLargura = findViewById(R.id.edit_largura);
+        editComprimento = findViewById(R.id.edit_comprimento);
+        btnCalcular = findViewById(R.id.button_calcular);
+        btnNovo = findViewById(R.id.button_novo);
 
-        this.mViewHolder.btnNovo.setOnClickListener(this);
-        this.mViewHolder.btnCalcular.setOnClickListener(this);
+        btnNovo.setOnClickListener(this);
+        btnCalcular.setOnClickListener(this);
 
         this.LimpaValores();
     }
@@ -36,30 +42,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         //Botão Calcular
         if (v.getId() == R.id.button_calcular) {
-            String valorAltura = this.mViewHolder.editAltura.getText().toString();
+            String valorAltura = editAltura.getText().toString();
             if ("".equals(valorAltura)) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             } else if (v.getId() == R.id.button_calcular) {
-                String valorLargura = this.mViewHolder.editLargura.getText().toString();
+                String valorLargura = editLargura.getText().toString();
                 if ("".equals(valorLargura)) {
                     Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 } else if (v.getId() == R.id.button_calcular) {
-                    String valorComprimento = this.mViewHolder.editComprimento.getText().toString();
+                    String valorComprimento = editComprimento.getText().toString();
                     if ("".equals(valorComprimento)) {
                         Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                     } else if (v.getId() == R.id.button_calcular) {
-                        String valorAlt = this.mViewHolder.editAltura.getText().toString();
-                        Integer altura = Integer.valueOf(valorAltura);
+                        String valorAlt = editAltura.getText().toString();
+                        Integer altura = Integer.valueOf(valorAlt);
                         if (altura > 105) {
                             Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
                         } else if (v.getId() == R.id.button_calcular) {
-                            String valorLarg = this.mViewHolder.editLargura.getText().toString();
-                            Integer largura = Integer.valueOf(valorLargura);
+                            String valorLarg = editLargura.getText().toString();
+                            Integer largura = Integer.valueOf(valorLarg);
                             if (largura > 105) {
                                 Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
                             } else if (v.getId() == R.id.button_calcular) {
-                                String valorComp = this.mViewHolder.editComprimento.getText().toString();
-                                Integer comprimento = Integer.valueOf(valorComprimento);
+                                String valorComp = editComprimento.getText().toString();
+                                Integer comprimento = Integer.valueOf(valorComp);
                                 if (comprimento > 105) {
                                     Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
                                 }
@@ -69,29 +75,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
+        if (v.getId() == R.id.button_calcular) {
+            Calculo();
+        }
 
 
         //Botão Novo
         if (v.getId() == R.id.button_novo) {
-            this.mViewHolder.editAltura.setText("");
-            this.mViewHolder.editLargura.setText("");
-            this.mViewHolder.editComprimento.setText("");
+            editAltura.setText("");
+            editLargura.setText("");
+            editComprimento.setText("");
         }
 
     }
 
     private void LimpaValores() {
-        this.mViewHolder.textResultado.setText("");
+        textResultado.setText("");
     }
 
-    private static class ViewHolder {
-        EditText editAltura;
-        EditText editLargura;
-        EditText editComprimento;
-        Button btnCalcular;
-        Button btnNovo;
-        TextView textResultado;
+    public void Calculo() {
+        String resultadoAlt = editAltura.getText().toString();
+        Integer alturaSoma = Integer.valueOf(resultadoAlt);
+
+        String resultadoLarg = editLargura.getText().toString();
+        Integer larguraSoma = Integer.valueOf(resultadoLarg);
+
+        String resultadorComp = editComprimento.getText().toString();
+        Integer comprimentoSoma = Integer.valueOf(resultadorComp);
+
+        int soma = (alturaSoma + larguraSoma + comprimentoSoma);
+        int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma)/6000);
+
+        if(soma > 200){
+            textResultado.setText("Soma dos lados maior que 200 cm.");
+        }else if(cubagem > 5){
+            textResultado.setText("Sua encomenda vai ser cobrada por cubagem!");
+        }else{
+            textResultado.setText("Sua encomenda não pegou cubagem!");
+        }
     }
-
-
 }
