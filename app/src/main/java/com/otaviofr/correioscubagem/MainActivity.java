@@ -49,10 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int altura = Integer.parseInt(valorAltura);
                 int largura = Integer.parseInt(valorLargura);
                 int comprimento = Integer.parseInt(valorComprimento);
+
                 if (altura > 105 || largura > 105 || comprimento > 105) {
                     Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
                 } else {
-                    Calculo();
+                    Calculo(altura, largura, comprimento);
                 }
             }
 
@@ -71,25 +72,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textResultado.setText("");
     }
 
-    public void Calculo() {
-        String resultadoAlt = editAltura.getText().toString();
-        Integer alturaSoma = Integer.parseInt(resultadoAlt);
-
-        String resultadoLarg = editLargura.getText().toString();
-        Integer larguraSoma = Integer.parseInt(resultadoLarg);
-
-        String resultadorComp = editComprimento.getText().toString();
-        Integer comprimentoSoma = Integer.parseInt(resultadorComp);
-
+    public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
         int soma = (alturaSoma + larguraSoma + comprimentoSoma);
         int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
 
         if (soma > 200) {
-            textResultado.setText("Soma dos lados maior que 200 cm.");
+            textResultado.setText(getString(R.string.soma_dos_lados));
         } else if (cubagem > 5) {
-            textResultado.setText("Sua encomenda vai ser cobrada por cubagem!");
+            textResultado.setText(getString(R.string.pegou_cubagem));
         } else {
-            textResultado.setText("Sua encomenda não pegou cubagem!");
+            textResultado.setText(getString(R.string.nao_pegou_cubagem));
         }
     }
 }
