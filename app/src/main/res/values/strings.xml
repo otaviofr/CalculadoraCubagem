@@ -8,4 +8,6 @@
     <string name="soma_dos_lados">Não é possivel enviar sua encomenda, a soma dos lados ultrapassa 200 centímetros.</string>
     <string name="pegou_cubagem">Sua encomenda vai ser cobrada por cubagem!</string>
     <string name="nao_pegou_cubagem">Sua encomenda não pegou cubagem!</string>
+    <string name="btn_novo">Novo</string>
+    <string name="btn_calcular">Calcular</string>
 </resources>

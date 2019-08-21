@@ -7,4 +7,5 @@
     <color name="colorBackground_button">#EB0256E9</color>
     <color name="colorText">#FBFCFA</color>
     <color name="black">#AB030501</color>
+    <color name="botao_selecionado">#EB02286B</color>
 </resources>
