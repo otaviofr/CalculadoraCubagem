@@ -5,7 +5,7 @@
     <string name="altura">Altura:</string>
     <string name="dimensoes_cm">Dimensões (cm)</string>
     <string name="resultado">Resultado</string>
-    <string name="soma_dos_lados">Não é possivel enviar sua encomenda, a soma dos lados ultrapassa 200 cm.</string>
+    <string name="soma_dos_lados">Não é possivel enviar sua encomenda, a soma dos lados ultrapassa 200 centímetros.</string>
     <string name="pegou_cubagem">Sua encomenda vai ser cobrada por cubagem!</string>
     <string name="nao_pegou_cubagem">Sua encomenda não pegou cubagem!</string>
 </resources>

@@ -75,8 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
         int soma = (alturaSoma + larguraSoma + comprimentoSoma);
         int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
-
-        if (soma > 200) {
+         if(alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0){
+             Toast.makeText(this, "Valor inválido", Toast.LENGTH_SHORT).show();
+        }else if (soma > 200) {
             textResultado.setText(getString(R.string.soma_dos_lados));
         } else if (cubagem > 5) {
             textResultado.setText(getString(R.string.pegou_cubagem));
