@@ -50,13 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int largura = Integer.parseInt(valorLargura);
                 int comprimento = Integer.parseInt(valorComprimento);
 
-                if (altura > 105 || largura > 105 || comprimento > 105) {
-                    Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-                } else {
-                    Calculo(altura, largura, comprimento);
-                }
+                Calculo(altura, largura, comprimento);
             }
-
         }
 
         //Botão Novo
@@ -75,9 +70,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
         int soma = (alturaSoma + larguraSoma + comprimentoSoma);
         int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
-         if(alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0){
-             Toast.makeText(this, "Valor inválido", Toast.LENGTH_SHORT).show();
-        }else if (soma > 200) {
+
+        if (alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0) {
+            Toast.makeText(this, "Valor inválido", Toast.LENGTH_SHORT).show();
+            textResultado.setText("");
+        } else if (alturaSoma < 3) {
+            Toast.makeText(this, "Altura mínima 3 cm", Toast.LENGTH_SHORT).show();
+            textResultado.setText("");
+        } else if (larguraSoma < 10) {
+            Toast.makeText(this, "Largura mínima 10 cm", Toast.LENGTH_SHORT).show();
+            textResultado.setText("");
+        } else if (comprimentoSoma < 15) {
+            Toast.makeText(this, "Comprimento mínimo 15 cm", Toast.LENGTH_SHORT).show();
+            textResultado.setText("");
+        } else if (alturaSoma > 105 || larguraSoma > 105 || comprimentoSoma > 105) {
+            Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
+        } else if (soma > 200) {
             textResultado.setText(getString(R.string.soma_dos_lados));
         } else if (cubagem > 5) {
             textResultado.setText(getString(R.string.pegou_cubagem));
