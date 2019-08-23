@@ -160,17 +160,17 @@
 
     <Spinner
         android:id="@+id/spinner_peso"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="117dp"
+        android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="@+id/text_View_Comprimento"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.8969" />
 
     <TextView
         android:id="@+id/text_View_Reultado"

@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textResultado;
     private Button btnNovo;
     private Button btnCalcular;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editComprimento = findViewById(R.id.edit_comprimento);
         btnCalcular = findViewById(R.id.button_calcular);
         btnNovo = findViewById(R.id.button_novo);
+
+        spinner = findViewById(R.id.spinner_peso);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_pesos, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         btnNovo.setOnClickListener(this);
         btnCalcular.setOnClickListener(this);
@@ -60,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editLargura.setText("");
             editComprimento.setText("");
             textResultado.setText("");
+            spinner.setSelection(0);
         }
     }
 
@@ -70,12 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
         int soma = (alturaSoma + larguraSoma + comprimentoSoma);
         int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
+        int spinnerPeso = spinner.getSelectedItemPosition();
 
         if (alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0) {
             Toast.makeText(this, "Valor inválido", Toast.LENGTH_SHORT).show();
             textResultado.setText("");
-        } else if (alturaSoma < 3) {
-            Toast.makeText(this, "Altura mínima 3 cm", Toast.LENGTH_SHORT).show();
+        } else if (alturaSoma < 1) {
+            Toast.makeText(this, "Altura mínima 1 cm", Toast.LENGTH_SHORT).show();
             textResultado.setText("");
         } else if (larguraSoma < 10) {
             Toast.makeText(this, "Largura mínima 10 cm", Toast.LENGTH_SHORT).show();
@@ -85,11 +95,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textResultado.setText("");
         } else if (alturaSoma > 105 || larguraSoma > 105 || comprimentoSoma > 105) {
             Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-        } else if (soma > 200) {
+        } else if(spinnerPeso == 0){
+            Toast.makeText(this, "Selecione o peso", Toast.LENGTH_SHORT).show();
+
+        }
+        else if (soma > 200) {
             textResultado.setText(getString(R.string.soma_dos_lados));
-        } else if (cubagem > 5) {
+        } else if (cubagem > 5 && spinnerPeso < cubagem) {
             textResultado.setText(getString(R.string.pegou_cubagem));
-        } else {
+        }else if(spinnerPeso > cubagem){
+            textResultado.setText(getString(R.string.nao_pegou_cubagem));
+        }else {
             textResultado.setText(getString(R.string.nao_pegou_cubagem));
         }
     }
