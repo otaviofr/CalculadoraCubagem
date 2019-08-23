@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
-        int soma = (alturaSoma + larguraSoma + comprimentoSoma);
-        int cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
+        float soma = (alturaSoma + larguraSoma + comprimentoSoma);
+        float cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
         int spinnerPeso = spinner.getSelectedItemPosition();
 
         if (alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0) {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (soma > 200) {
             textResultado.setText(getString(R.string.soma_dos_lados));
-        } else if (cubagem > 5 && spinnerPeso < cubagem) {
+        } else if (cubagem >= 5 && spinnerPeso < cubagem) {
             textResultado.setText(getString(R.string.pegou_cubagem));
         }else if(spinnerPeso > cubagem){
             textResultado.setText(getString(R.string.nao_pegou_cubagem));
