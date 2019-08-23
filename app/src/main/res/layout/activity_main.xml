@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textDimensoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -23,6 +24,23 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:id="@+id/textPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
+        android:text="Peso (Kg)"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7512"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
         android:id="@+id/text_View_Altura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +52,21 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_calcular"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintVertical_bias="0.10"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="Peso"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/textDimensoes"
+        app:layout_constraintVertical_bias="0.885"
+        tools:layout_editor_absoluteX="0dp"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -51,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <TextView
         android:id="@+id/text_View_Largura"
@@ -65,7 +97,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_calcular"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.30"
+        app:layout_constraintVertical_bias="0.20"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -82,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <TextView
         android:id="@+id/text_View_Comprimento"
@@ -96,7 +128,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_calcular"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.30"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -113,7 +145,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <View
         android:id="@+id/view"
@@ -123,8 +155,22 @@
         android:background="@color/colorBackground_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
+        app:layout_constraintVertical_bias="0.53"
         tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/spinner_peso"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="@+id/text_View_Comprimento"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875" />
 
     <TextView
         android:id="@+id/text_View_Reultado"
@@ -137,7 +183,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button_calcular"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <Button
         android:id="@+id/button_calcular"
