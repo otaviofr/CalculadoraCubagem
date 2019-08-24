@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText editLargura;
     private EditText editComprimento;
     private TextView textResultado;
+    private TextView mostraPesoCubico;
     private Button btnNovo;
     private Button btnCalcular;
     private Spinner spinner;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editComprimento = findViewById(R.id.edit_comprimento);
         btnCalcular = findViewById(R.id.button_calcular);
         btnNovo = findViewById(R.id.button_novo);
+        mostraPesoCubico = findViewById(R.id.textMostraPesoCubico);
 
         spinner = findViewById(R.id.spinner_peso);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_pesos, android.R.layout.simple_spinner_item);
@@ -68,17 +70,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editLargura.setText("");
             editComprimento.setText("");
             textResultado.setText("");
+            mostraPesoCubico.setText("");
             spinner.setSelection(0);
         }
     }
 
     private void LimpaValores() {
+        mostraPesoCubico.setText("");
         textResultado.setText("");
     }
 
     public void Calculo(Integer alturaSoma, Integer larguraSoma, Integer comprimentoSoma) {
         float soma = (alturaSoma + larguraSoma + comprimentoSoma);
-        float cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000);
+        float cubagem = ((alturaSoma * larguraSoma * comprimentoSoma) / 6000.0f);
         int spinnerPeso = spinner.getSelectedItemPosition();
 
         if (alturaSoma == 0 || larguraSoma == 0 || comprimentoSoma == 0) {
@@ -95,18 +99,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textResultado.setText("");
         } else if (alturaSoma > 105 || larguraSoma > 105 || comprimentoSoma > 105) {
             Toast.makeText(this, "Máximo 105 cm", Toast.LENGTH_SHORT).show();
-        } else if(spinnerPeso == 0){
+        } else if (spinnerPeso == 0) {
             Toast.makeText(this, "Selecione o peso", Toast.LENGTH_SHORT).show();
 
-        }
-        else if (soma > 200) {
+        } else if (soma > 200) {
             textResultado.setText(getString(R.string.soma_dos_lados));
         } else if (cubagem >= 5 && spinnerPeso < cubagem) {
             textResultado.setText(getString(R.string.pegou_cubagem));
-        }else if(spinnerPeso > cubagem){
+            mostraPesoCubico.setText(String.format("%.2f", (cubagem)));
+        } else if (spinnerPeso > cubagem) {
             textResultado.setText(getString(R.string.nao_pegou_cubagem));
-        }else {
+            mostraPesoCubico.setText(String.format("%.2f", (cubagem)));
+        } else {
             textResultado.setText(getString(R.string.nao_pegou_cubagem));
+            mostraPesoCubico.setText(String.format("%.2f",(cubagem)));
         }
     }
 }
