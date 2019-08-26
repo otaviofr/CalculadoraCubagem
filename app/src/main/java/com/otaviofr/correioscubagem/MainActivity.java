@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editLargura.setText("");
             editComprimento.setText("");
             textResultado.setText("");
-            mostraPesoCubico.setText("");
+            mostraPesoCubico.setText("0,00");
             spinner.setSelection(0);
         }
     }
 
     private void LimpaValores() {
-        mostraPesoCubico.setText("");
+        mostraPesoCubico.setText("0,00");
         textResultado.setText("");
     }
 
